@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Board
 {
@@ -135,9 +136,10 @@ public class Board
         }
     }
 
-
     internal void FillGapsWithNewItems()
     {
+       
+
         for (int x = 0; x < boardSizeX; x++)
         {
             for (int y = 0; y < boardSizeY; y++)
@@ -147,7 +149,7 @@ public class Board
 
                 NormalItem item = new NormalItem();
 
-                item.SetType(Utils.GetRandomNormalType());
+                item.SetType(Utils.GetSuitableType(x, y, m_cells));
                 item.SetView();
                 item.SetViewRoot(m_root);
 

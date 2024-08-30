@@ -11,7 +11,6 @@ public class Item
 
     public Transform View { get; private set; }
 
-
     public virtual void SetView()
     {
         string prefabname = GetPrefabName();
@@ -26,8 +25,7 @@ public class Item
                 string prefabTextureName = GetPrefabTextue();
                 if (!string.IsNullOrEmpty(prefabTextureName))
                 {
-                    Debug.Log(prefabTextureName);
-                    View.GetComponent<SpriteRenderer>().sprite = Resources.Load<TextureSO>(prefabTextureName).sprite;
+                   View.GetComponent<SpriteRenderer>().sprite = Resources.Load<TextureSO>(prefabTextureName).sprite;
                 }
             }
         }
