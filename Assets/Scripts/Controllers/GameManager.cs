@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     private BoardController m_boardController;
 
-    private UIMainManager m_uiMenu;
+    [SerializeField] private UIMainManager m_uiMenu;
 
     private LevelCondition m_levelCondition;
 
@@ -50,8 +50,6 @@ public class GameManager : MonoBehaviour
         State = eStateGame.SETUP;
 
         m_gameSettings = Resources.Load<GameSettings>(Constants.GAME_SETTINGS_PATH);
-
-        m_uiMenu = FindObjectOfType<UIMainManager>();
         m_uiMenu.Setup(this);
     }
 
@@ -61,11 +59,11 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
+
     void Update()
     {
-        if (m_boardController != null) m_boardController.Update();
+        if (m_boardController != null) m_boardController.UpdateBoardController();
     }
-
 
     internal void SetState(eStateGame state)
     {
@@ -119,13 +117,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator WaitBoardController()
     {
-        while (m_boardController.IsBusy)
-        {
-            yield return new WaitForEndOfFrame();
-        }
-
         yield return new WaitForSeconds(1f);
-
         State = eStateGame.GAME_OVER;
 
         if (m_levelCondition != null)

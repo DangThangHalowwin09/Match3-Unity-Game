@@ -19,6 +19,8 @@ public class LevelTime : LevelCondition
 
         UpdateText();
     }
+    private float timer = 0f;
+    private float updateInterval = 1f;
 
     private void Update()
     {
@@ -27,8 +29,13 @@ public class LevelTime : LevelCondition
         if (m_mngr.State != GameManager.eStateGame.GAME_STARTED) return;
 
         m_time -= Time.deltaTime;
+        timer += Time.deltaTime;
 
-        UpdateText();
+        if (timer >= updateInterval)
+        {
+            UpdateText();
+            timer = 0f;
+        }
 
         if (m_time <= -1f)
         {
@@ -39,7 +46,6 @@ public class LevelTime : LevelCondition
     protected override void UpdateText()
     {
         if (m_time < 0f) return;
-
         m_txt.text = string.Format("TIME:\n{0:00}", m_time);
     }
 }
