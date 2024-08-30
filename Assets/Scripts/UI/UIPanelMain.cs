@@ -9,6 +9,7 @@ public class UIPanelMain : MonoBehaviour, IMenu
     [SerializeField] private Button btnTimer;
 
     [SerializeField] private Button btnMoves;
+    [SerializeField] private Button btnRestartLevel;
 
     private UIMainManager m_mngr;
 
@@ -16,6 +17,7 @@ public class UIPanelMain : MonoBehaviour, IMenu
     {
         btnMoves.onClick.AddListener(OnClickMoves);
         btnTimer.onClick.AddListener(OnClickTimer);
+        btnRestartLevel.onClick.AddListener(OnClickRestartLevel);
     }
 
     private void OnDestroy()
@@ -39,6 +41,10 @@ public class UIPanelMain : MonoBehaviour, IMenu
         m_mngr.LoadLevelMoves();
     }
 
+    private void OnClickRestartLevel()
+    {
+        m_mngr.LoadLevelAgain();
+    }
     public void Show()
     {
         this.gameObject.SetActive(true);
