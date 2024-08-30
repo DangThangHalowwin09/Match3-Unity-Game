@@ -1,4 +1,4 @@
-﻿public class Constants 
+﻿public class Constants
 {
     public const string GAME_SETTINGS_PATH = "gamesettings";
 
@@ -23,4 +23,18 @@
     public const string PREFAB_BONUS_VERTICAL = "prefabs/itemBonusVertical";
 
     public const string PREFAB_BONUS_BOMB = "prefabs/itemBonusBomb";
+
+    public const string TEXTURE_NORMAL_TYPE_ONE = "TextureSO/TextureFish1";
+
+    public const string TEXTURE_NORMAL_TYPE_TWO = "TextureSO/TextureFish2";
+
+    public const string TEXTURE_NORMAL_TYPE_THREE = "TextureSO/TextureFish3";
+
+    public const string TEXTURE_NORMAL_TYPE_FOUR = "TextureSO/TextureFish4";
+
+    public const string TEXTURE_NORMAL_TYPE_FIVE = "TextureSO/TextureFish5";
+
+    public const string TEXTURE_NORMAL_TYPE_SIX = "TextureSO/TextureFish6";
+
+    public const string TEXTURE_NORMAL_TYPE_SEVEN = "TextureSO/TextureFish7";
 }
